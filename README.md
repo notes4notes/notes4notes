@@ -38,9 +38,9 @@ A way for Queens College students to exchange notes and resources easily and eff
 ### Optional Nice-to-have Stories 
 * Incorperate funtionality over multiple universities 
 * Login using Google+ or Facebook. 
-* Search (with or without filters. For example: The ability to sort by Subject,       Professor etc.)
+* Search (with or without filters. For example: The ability to sort by Subject, Professor etc.)
 * The ability to suggest a correction to the uploader. 
-*
+
 ### 2. Screen Archetypes
 * Login/Sign-up Screen
    * Make an account. (Signup - Login)
@@ -86,9 +86,6 @@ A way for Queens College students to exchange notes and resources easily and eff
 <img src="Documentation/Mockup_Images_Loviza/img 1.PNG" width=250> <img src="Documentation/Mockup_Images_Loviza/img 2.PNG" width=250>
 
 <img src="Documentation/Mockup_Images_Loviza/img 3.PNG" width=250> <img src="Documentation/Mockup_Images_Loviza/img 4.PNG" width=250>
-
-
-### [BONUS] Interactive Prototype
 
 ## Schema 
 [This section will be completed in Unit 9]
