@@ -73,10 +73,20 @@ A way for Queens College students to exchange notes and resources easily and eff
    
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
 
-### [BONUS] Digital Wireframes & Mockups
+<img src="Documentation/Mockup_Images_Linda/Wireframe.png" width=600>
+
+### Digital Wireframes & Mockups
+## Version 1
+<img src="Documentation/Mockup_Images_Muneeb/Frame.png" width=250> <img src="Documentation/Mockup_Images_Muneeb/Frame-1.png" width=250>
+
+<img src="Documentation/Mockup_Images_Muneeb/Frame-2.png" width=250> <img src="Documentation/Mockup_Images_Muneeb/Frame-3.png" width=250>
+
+## Version 2
+<img src="Documentation/Mockup_Images_Loviza/img 1.PNG" width=250> <img src="Documentation/Mockup_Images_Loviza/img 2.PNG" width=250>
+
+<img src="Documentation/Mockup_Images_Loviza/img 3.PNG" width=250> <img src="Documentation/Mockup_Images_Loviza/img 4.PNG" width=250>
+
 
 ### [BONUS] Interactive Prototype
 
