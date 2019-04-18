@@ -220,9 +220,6 @@ A way for Queens College students to exchange notes and resources easily and eff
 
 
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
 List of network requests by screen
 * Home Feed Screen
     * (Read/GET) Saved Notes from User
