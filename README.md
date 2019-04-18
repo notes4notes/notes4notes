@@ -89,9 +89,156 @@ A way for Queens College students to exchange notes and resources easily and eff
 
 ## Schema 
 [This section will be completed in Unit 9]
+
 ### Models
-[Add table of models]
+
+[User Model]
+<table>
+	<tr>
+		<td>Property</td>
+		<td>Data Type</td>
+    <td>Description</td>
+	</tr>
+	<tr>
+		<td>Username</td>
+		<td>String</td>
+    <td>User input alias</td>
+	</tr>
+  <tr>
+		<td>Email</td>
+		<td>String</td>
+    <td>User input email</td>
+	</tr>
+  <tr>
+		<td>Password</td>
+		<td>String</td>
+    <td>User input password</td>
+	</tr>
+  <tr>
+		<td>CreatedAt</td>
+		<td>date</td>
+    <td>When the user was first created</td>
+	</tr>
+  <tr>
+		<td>UserID</td>
+		<td>String</td>
+    <td>Unique identifier for database</td>
+	</tr>
+  <tr>
+		<td>ProfilePicture</td>
+		<td>image/file</td>
+    <td>User chosen image</td>
+	</tr>
+  <tr>
+		<td>SavedNotes</td>
+		<td>String Array</td>
+    <td>IDs of the user's favorited notes</td>
+	</tr>
+</table>
+
+[Post Model]
+<table>
+	<tr>
+		<td>Property</td>
+		<td>Data Type</td>
+    <td>Description</td>
+	</tr>
+  <tr>
+		<td>PostID</td>
+		<td>String</td>
+    <td>The unique identifier for the database</td>
+	</tr>
+  <tr>
+		<td>Title</td>
+		<td>String</td>
+    <td>User inputted title for the post</td>
+	</tr>
+  <tr>
+		<td>Description</td>
+		<td>String</td>
+    <td>User input description of the notes</td>
+	</tr>
+  <tr>
+		<td>Class</td>
+		<td>String</td>
+    <td>User input of what class the notes are for</td>
+	</tr>
+  <tr>
+		<td>Files</td>
+		<td>file</td>
+    <td>User uploaded notes that will be displayed</td>
+	</tr>
+  <tr>
+		<td>Rating</td>
+		<td>Double</td>
+    <td>The average of user input ratings on the note</td>
+	</tr>
+  <tr>
+		<td>CommentID</td>
+		<td>String</td>
+    <td>Identifier to which comment thread is related to this post</td>
+	</tr>
+  <tr>
+		<td>CreatedAt</td>
+		<td>date</td>
+    <td>The date this post was uploaded</td>
+	</tr>
+</table>
+
+<table>
+  <tr>
+		<td>Property</td>
+		<td>Data Type</td>
+    <td>Description</td>
+	</tr>
+	<tr>
+		<td>CommentID</td>
+		<td>String</td>
+    <td>Unique identifier for this comment post in the DB</td>
+	</tr>
+  <tr>
+		<td>PostID</td>
+		<td>String</td>
+    <td>FK for which post this comment thread belongs to</td>
+	</tr>
+  <tr>
+		<td>CommentContent</td>
+		<td>String</td>
+    <td>User input comment that will be displayed</td>
+	</tr>
+  <tr>
+		<td>UserID</td>
+		<td>String</td>
+    <td>FK for which user posted this comment</td>
+	</tr>
+  <tr>
+		<td>CreatedAt</td>
+		<td>date</td>
+    <td>Date that this post was created</td>
+	</tr>
+</table>
+
+
 ### Networking
 - [Add list of network requests by screen ]
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
+List of network requests by screen
+* Home Feed Screen
+    * (Read/GET) Saved Notes from User
+* Create Post Screen
+  * (Create/POST) Create a new post object
+  * (Update/PUT) Update user’s collection
+* Profile Screen
+  * (Read/GET) Query logged in user object
+* Login Screen
+  * (Create/POST) A new user to the database
+* Post Activity
+  * (Read/GET) Query specific post object
+  * (Update/PUT) User’s saved notes 
+  * (Update/PUT) Comments
+* Search Screen
+  * (Read/GET) Query specific database for posts
+* Post Activity
+  * (Read/GET) Query specific post object
+
