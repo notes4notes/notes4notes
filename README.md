@@ -184,7 +184,7 @@ A way for Queens College students to exchange notes and resources easily and eff
     <td>The date this post was uploaded</td>
 	</tr>
 </table>
-
+[Comment Model]
 <table>
   <tr>
 		<td>Property</td>
