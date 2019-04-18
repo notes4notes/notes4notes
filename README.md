@@ -222,7 +222,7 @@ A way for Queens College students to exchange notes and resources easily and eff
 ### Networking
 List of network requests by screen
 * Home Feed Screen
-    * (Read/GET) Saved Notes from User
+    * (Read/GET) Uploaded notes
 * Create Post Screen
   * (Create/POST) Create a new post object
   * (Update/PUT) Update user’s collection
