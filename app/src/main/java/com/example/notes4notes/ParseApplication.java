@@ -8,9 +8,9 @@ import com.parse.ParseObject;
 
 
 public class ParseApplication extends Application{
-    private static final String appId     = "TO-DO";
-    private static final String clientKey = "TO-DO";
-    private static final String serverURL = "TO-DO";
+    private static final String appId     = "notes-4-notes"                                        ;
+    private static final String clientKey = "sharingIsCaringPleaseShareAllOfYourNotesOnOurPlatform";
+    private static final String serverURL = "http://notes-4-notes.herokuapp.com/parse"             ;
     @Override
     public void onCreate() {
         super.onCreate();
