@@ -1,10 +1,7 @@
 package com.example.notes4notes;
 
-
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 
 public class MainActivity extends AppCompatActivity {
 
