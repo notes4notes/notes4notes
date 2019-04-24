@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">notes4notes</string>
+    <string name="name">Name</string>
+    <string name="username_or_email">Username or Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="register">Register</string>
+    <string name="application_logo">application logo</string>
 </resources>
