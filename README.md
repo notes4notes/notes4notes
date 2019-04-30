@@ -27,19 +27,26 @@ A way for Queens College students to exchange notes and resources easily and eff
 
 **Required Must-have Stories**
 
-* Make an account. (Signup - Login)
-* Upload notes     (.pdf, images).
-* Parse Uploaded images into a .pdf. 
-* Users should be able to Download notes as .pdf (Account Required). 
-* The ability to rate uploads/posts. (Upload Rankings)
-* The ability to view/select notes that you acquire or uploaded.
-* Users can comment on notes
+- [x] Login to account 
+- [ ] Register for account 
+- [ ] Upload notes     (.pdf, images).
+- [ ] Parse Uploaded images into a .pdf. 
+- [ ] Users should be able to Download notes as .pdf (Account Required). 
+- [ ] The ability to rate uploads/posts. (Upload Rankings)
+- [ ] The ability to view/select notes that you acquire or uploaded.
+- [ ] Users can comment on notes
 
 ### Optional Nice-to-have Stories 
-* Incorperate funtionality over multiple universities 
-* Login using Google+ or Facebook. 
-* Search (with or without filters. For example: The ability to sort by Subject, Professor etc.)
-* The ability to suggest a correction to the uploader. 
+- [ ] Incorperate funtionality over multiple universities 
+- [ ] Login using Google+ or Facebook. 
+- [ ] Search (with or without filters. For example: The ability to sort by Subject, Professor etc.)
+- [ ] The ability to suggest a correction to the uploader. 
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='login_screen.gif' title='Login Screen Walkthrough' width='' alt='Login Screen Walkthrough' />
 
 ### 2. Screen Archetypes
 * Login/Sign-up Screen
