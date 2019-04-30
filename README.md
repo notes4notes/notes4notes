@@ -42,6 +42,12 @@ A way for Queens College students to exchange notes and resources easily and eff
 - [ ] Search (with or without filters. For example: The ability to sort by Subject, Professor etc.)
 - [ ] The ability to suggest a correction to the uploader. 
 
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='login_screen.gif' title='Login Screen Walkthrough' width='' alt='Login Screen Walkthrough' />
+
 ### 2. Screen Archetypes
 * Login/Sign-up Screen
    * Make an account. (Signup - Login)
