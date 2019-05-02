@@ -1,5 +1,6 @@
 package com.example.notes4notes;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
-import com.parse.SignUpCallback;
 
 
 public class RegisterActivity extends AppCompatActivity {
@@ -23,6 +23,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText etPass;
     private Button btnSignUp;
 
+    @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

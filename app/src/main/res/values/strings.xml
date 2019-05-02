@@ -6,7 +6,10 @@
     <string name="sign_in">Sign In</string>
     <string name="register">Register</string>
     <string name="application_logo">application logo</string>
-    <string name="name">Name</string>
     <string name="email">Email</string>
     <string name="username">Username</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="home_feed">Home</string>
+    <string name="compose_post">Compose</string>
+    <string name="user_profile">Profile</string>
 </resources>
