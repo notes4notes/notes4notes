@@ -91,8 +91,6 @@ public class LoginActivity extends AppCompatActivity {
                 String usernameTxt = username.getText().toString();
                 String passwordTxt = password.getText().toString();
                 login(usernameTxt, passwordTxt);
-                // to do, remove later
-                afterLogInActivity();
             }
         });
 
