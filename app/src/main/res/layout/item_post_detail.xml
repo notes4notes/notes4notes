@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/detailPostContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/postDetailContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="9dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/postDetailAuthorImage"
+            android:layout_width="137dp"
+            android:layout_height="148dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/postauthorimage"
+            app:layout_constraintBottom_toTopOf="@+id/postDetailAuthor"
+            app:layout_constraintEnd_toStartOf="@+id/postDetailDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_profile" />
+
+        <TextView
+            android:id="@+id/postDetailTitle"
+            android:layout_width="141dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="58dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="56dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/post_title"
+            app:layout_constraintBottom_toTopOf="@+id/postDetailDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintStart_toEndOf="@+id/postDetailAuthorImage"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/postDetailAuthor"
+            android:layout_width="116dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/post_author"
+            app:layout_constraintBottom_toTopOf="@+id/postDetailRating"
+            app:layout_constraintEnd_toStartOf="@+id/postDetailDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/postDetailAuthorImage" />
+
+        <TextView
+            android:id="@+id/postDetailDescription"
+            android:layout_width="230dp"
+            android:layout_height="101dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="121dp"
+            android:text="@string/postDescriptionText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/postDetailAuthorImage"
+            app:layout_constraintTop_toBottomOf="@+id/postDetailTitle" />
+
+        <RatingBar
+            android:id="@+id/postDetailRating"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="284dp"
+            android:layout_marginBottom="11dp"
+            android:numStars="5"
+            android:rating="3"
+            app:layout_constraintBottom_toTopOf="@+id/postDetailLikeButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/postDetailAuthor" />
+
+        <ImageButton
+            android:id="@+id/postDetailLikeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="14dp"
+            android:contentDescription="@string/likebutton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/postDetailUnlikeButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@android:drawable/arrow_up_float" />
+
+        <ImageButton
+            android:id="@+id/postDetailUnlikeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="284dp"
+            android:contentDescription="@string/unlikebutton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/postDetailLikeButton"
+            app:srcCompat="@android:drawable/arrow_down_float" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/postDetailCommentStream"
+        android:layout_width="365dp"
+        android:layout_height="223dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="34dp"
+        app:layout_constraintBottom_toTopOf="@+id/editText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.63"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postDetailContainer" />
+
+    <Button
+        android:id="@+id/postDetailCommentButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="133dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="183dp"
+        android:layout_marginBottom="28dp"
+        android:text="@string/comment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="347dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="29dp"
+        android:ems="10"
+        android:hint="@string/commentHint"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/postDetailCommentButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postDetailCommentStream" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

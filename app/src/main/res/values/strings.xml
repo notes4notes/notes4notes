@@ -20,4 +20,5 @@
     <string name="postauthorimage">postAuthorImage</string>
     <string name="download">Download</string>
     <string name="comment">Comment</string>
+    <string name="commentHint">Good Job! loving the notes</string>
 </resources>
