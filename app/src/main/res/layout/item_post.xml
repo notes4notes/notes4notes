@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/postContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+
+    <ImageView
+        android:id="@+id/postAuthorImage"
+        android:layout_width="137dp"
+        android:layout_height="148dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/postAuthor"
+        app:layout_constraintEnd_toStartOf="@+id/postDescription"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_profile"
+        android:contentDescription="@string/postauthorimage" />
+
+    <TextView
+        android:id="@+id/postTitle"
+        android:layout_width="141dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/post_title"
+        app:layout_constraintBottom_toTopOf="@+id/postDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toEndOf="@+id/postAuthorImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/postAuthor"
+        android:layout_width="116dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/post_author"
+        app:layout_constraintBottom_toTopOf="@+id/postRating"
+        app:layout_constraintEnd_toStartOf="@+id/postDescription"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postAuthorImage" />
+
+    <TextView
+        android:id="@+id/postDescription"
+        android:layout_width="230dp"
+        android:layout_height="101dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="121dp"
+        android:text="@string/postDescriptionText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/postAuthorImage"
+        app:layout_constraintTop_toBottomOf="@+id/postTitle" />
+
+    <RatingBar
+        android:id="@+id/postRating"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="284dp"
+        android:layout_marginBottom="11dp"
+        android:numStars="5"
+        android:rating="3"
+        app:layout_constraintBottom_toTopOf="@+id/postLikeButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postAuthor" />
+
+    <ImageButton
+        android:id="@+id/postLikeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/postUnlikeButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/arrow_up_float"
+        android:contentDescription="@string/likebutton" />
+
+    <ImageButton
+        android:id="@+id/postUnlikeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="284dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/postLikeButton"
+        app:srcCompat="@android:drawable/arrow_down_float"
+        android:contentDescription="@string/unlikebutton"
+        />
+
+    <Button
+        android:id="@+id/postCommentButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="1dp"
+        android:text="@string/comment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/postDownloadButton"
+        app:layout_constraintTop_toBottomOf="@+id/postDescription" />
+
+    <Button
+        android:id="@+id/postDownloadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="132dp"
+        android:layout_marginBottom="1dp"
+        android:text="@string/download"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/postUnlikeButton"
+        app:layout_constraintTop_toBottomOf="@+id/postDescription" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

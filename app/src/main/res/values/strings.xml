@@ -12,4 +12,13 @@
     <string name="home_feed">Home</string>
     <string name="compose_post">Compose</string>
     <string name="user_profile">Profile</string>
+    <string name="post_title">POST TITLE</string>
+    <string name="post_author">POST AUTHOR</string>
+    <string name="postDescriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit</string>
+    <string name="likebutton">likeButton</string>
+    <string name="unlikebutton">unlikeButton</string>
+    <string name="postauthorimage">postAuthorImage</string>
+    <string name="download">Download</string>
+    <string name="comment">Comment</string>
+    <string name="commentHint">Good Job! loving the notes</string>
 </resources>
