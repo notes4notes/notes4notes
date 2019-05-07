@@ -47,6 +47,7 @@ A way for Queens College students to exchange notes and resources easily and eff
 Here's a walkthrough of implemented user stories:
 
 <img src='login_screen.gif' title='Login Screen Walkthrough' width='' alt='Login Screen Walkthrough' />
+<img src='20190506_221233.gif' title='Compose Screen Walkthrough' width='' alt='Compose Screen Walkthrough' />
 
 ### 2. Screen Archetypes
 * Login/Sign-up Screen
