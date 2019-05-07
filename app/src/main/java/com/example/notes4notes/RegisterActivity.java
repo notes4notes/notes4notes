@@ -17,7 +17,8 @@ import com.parse.SignUpCallback;
 
 public class RegisterActivity extends AppCompatActivity {
     private static final String TAG = "Register Activity";
-    private EditText etName;
+    private EditText etFirstName;
+    private EditText etLastName;
     private EditText etUsername;
     private EditText etEmail;
     private EditText etPass;
@@ -28,7 +29,8 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        etName = findViewById(R.id.etName);
+        etFirstName = findViewById(R.id.etFirstName);
+        etLastName = findViewById(R.id.etLastName);
         etUsername = findViewById(R.id.etUsername);
         etEmail = findViewById(R.id.etEmail);
         etPass = findViewById(R.id.etPassword);
@@ -37,11 +39,12 @@ public class RegisterActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String user = etName.getText().toString();
+                String lastName = etLastName.getText().toString();
+                String firstName = etFirstName.getText().toString();
                 String username = etUsername.getText().toString();
                 String email = etEmail.getText().toString();
                 String password = etPass.getText().toString();
-                if (user.length() <= 0 || username.length() <= 0 || email.length() <= 0 || password.length() <= 0) {
+                if (firstName.length() <= 0 || lastName.length() <= 0 || username.length() <= 0 || email.length() <= 0 || password.length() <= 0) {
                     Toast.makeText(RegisterActivity.this, "Missing a field", Toast.LENGTH_LONG).show();
                 } else {
                     ParseUser newUser = new ParseUser();
