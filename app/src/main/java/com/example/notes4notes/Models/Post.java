@@ -17,6 +17,30 @@ public class Post extends ParseObject {
 
     /* Getter & Setter Methods */
 
+    public static String getKeyPostTitle() {
+        return KEY_POST_TITLE;
+    }
+
+    public static String getKeyPostDescription() {
+        return KEY_POST_DESCRIPTION;
+    }
+
+    public static String getKeyPostRating() {
+        return KEY_POST_RATING;
+    }
+
+    public static String getKeyPostFile() {
+        return KEY_POST_FILE;
+    }
+
+    public static String getKeyPostClass() {
+        return KEY_POST_CLASS;
+    }
+
+    public static String getKeyPostUser() {
+        return KEY_POST_USER;
+    }
+
     public String getDescription(){
         return getString(KEY_POST_DESCRIPTION);
     }
@@ -53,5 +77,6 @@ public class Post extends ParseObject {
 
     public void setTitle(String title){
         put(KEY_POST_TITLE, title);
+
     }
 } // end of Class

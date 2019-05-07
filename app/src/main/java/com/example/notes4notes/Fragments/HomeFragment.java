@@ -8,42 +8,46 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.notes4notes.Adapters.PostsAdapter;
 import com.example.notes4notes.Models.Post;
 import com.example.notes4notes.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends AbstractFragment {
 
     private RecyclerView rvHome;
-    public static final String TAG = "Home Fragment";
+
+    /** Posts */
+    List <Post>     mPosts;
+
+    static final String TAG = "Home Fragment";
+    private PostsAdapter adapter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        rvHome = view.findViewById(R.id.rvHome);
-
-
-
+        recyclerViewConfig(view);
         queryPosts();
-
-
     }
 
     protected void queryPosts(){
-        adapter.clear();
+        //adapter.clear();
+
         ParseQuery<Post> postQuery = new ParseQuery<Post>(Post.class);
-        postQuery.include(Post.KEY_USER);
+        postQuery.include(Post.getKeyPostUser());
         postQuery.setLimit(20);
         postQuery.addDescendingOrder(Post.KEY_CREATED_AT);
         postQuery.findInBackground(new FindCallback<Post>() {
@@ -62,5 +66,23 @@ public class HomeFragment extends AbstractFragment {
                 }
             }
         });
-    }
-}
+    } // end of Query Posts
+
+    protected void recyclerViewConfig(View view){
+        rvHome = view.findViewById(R.id.recycleViewPosts);
+        /* Create the data source */
+        mPosts  = new ArrayList<>();
+
+        /*  Create the Adapter */
+        adapter = new PostsAdapter(getContext(), mPosts);
+
+        /* Set the adapter on the layout manager.*/
+        rvHome.setAdapter(adapter);
+
+        /* set the layout manager on the recycler view.*/
+        rvHome.setLayoutManager(new LinearLayoutManager(getContext()));
+
+    } // recyclerViewConfig
+
+
+}// end of class

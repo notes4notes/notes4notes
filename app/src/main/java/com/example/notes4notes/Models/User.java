@@ -11,6 +11,14 @@ public class User extends ParseObject {
     private static final  String KEY_USER_USERNAME     = "username"    ;
     private static final  String KEY_USER_CREATED_AT   = "createdAt"   ;
     private static final  String KEY_USER_EMAIL        = "email"       ;
+    private static final  String KEY_USER_PROFILE_PIC  = "userProfilePic" ;
+
+
+
+    public static String getKeyUserProfilePic() {
+        return KEY_USER_PROFILE_PIC;
+    }
+
 
 
     /*Getter Methods */
