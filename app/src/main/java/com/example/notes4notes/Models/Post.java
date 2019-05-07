@@ -1,5 +1,4 @@
 package com.example.notes4notes.Models;
-import com.parse.Parse;
 import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -13,8 +12,7 @@ public class Post extends ParseObject {
     private static final  String KEY_POST_RATING       = "postRating"  ;
     private static final  String KEY_POST_FILE         = "postFile"    ;
     private static final  String KEY_POST_CLASS        = "postClass";
-    private static final  String KEY_POST_USER        = "postUser";
-    private static final  String KEY_POST_PROFILE_PIC  = "post_profilePic";
+    private static final  String KEY_POST_USER         = "postUser";
 
 
     /* Getter & Setter Methods */
@@ -56,13 +54,4 @@ public class Post extends ParseObject {
     public void setTitle(String title){
         put(KEY_POST_TITLE, title);
     }
-
-    public void setImage(ParseFile parseFile){
-        put(KEY_POST_PROFILE_PIC, parseFile);
-    }
-
-    public ParseFile getImage(){
-        return getParseFile(KEY_POST_PROFILE_PIC);
-    }
-
 } // end of Class
