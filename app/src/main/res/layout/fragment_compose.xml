@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etComposeDescription" />
 
     <Button
-        android:id="@+id/btnSubmit"
+        android:id="@+id/btnComposeSubmit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -57,16 +57,28 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="0dp"
-        android:layout_height="30"
+    <Button
+        android:id="@+id/btnComposeUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:text="TextView"
+        android:layout_marginBottom="8dp"
+        android:text="Upload File"
+        app:layout_constraintBottom_toTopOf="@+id/btnComposeSubmit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="171dp" />
+        app:layout_constraintTop_toBottomOf="@+id/etComposeClass" />
+
+    <TextView
+        android:id="@+id/tvComposeFileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="File Selected : "
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etComposeClass" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
