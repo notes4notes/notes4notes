@@ -62,7 +62,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
         private Button postCommentButton;
         private Button postDownloadButton;
 
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
             postAuthorImage = itemView.findViewById (R.id.postAuthorImage);
             postTitle = itemView.findViewById(R.id.postTitle);
@@ -75,7 +75,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
             postDownloadButton = itemView.findViewById(R.id.postDownloadButton);
         }
 
-        public void bind(Post post){
+         void bind(Post post){
             //TODO: bid the view elements to the post
             Log.e("POSTS_adapter", "bind method invoked");
             postTitle.setText(post.getUser().getUsername());
