@@ -17,7 +17,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.notes4notes.Adapters.PostsAdapter;
+import com.example.notes4notes.LikedPostsActivity;
 import com.example.notes4notes.LoginActivity;
 import com.example.notes4notes.Models.Post;
 import com.example.notes4notes.Models.User;
@@ -112,9 +114,9 @@ public class ProfileFragment extends AbstractFragment {
         profileUsername.setText(ParseUser.getCurrentUser().getUsername());
         ParseFile profilePic = ParseUser.getCurrentUser().getParseFile(User.getKeyUserProfilePic());
         if (profilePic !=null)
-            Glide.with(view.getContext()).load(profilePic.getUrl()).into(profileProfilePic);
+            Glide.with(view.getContext()).load(profilePic.getUrl()).override(300,300).into(profileProfilePic);
         else
-            Glide.with(view.getContext()).load("@drawable/ic_profile").into(profileProfilePic);
+            Glide.with(view.getContext()).load("@drawable/ic_profile").apply(new RequestOptions().centerCrop()).into(profileProfilePic);
 
         profileLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,9 +126,18 @@ public class ProfileFragment extends AbstractFragment {
                 Intent i = new Intent(context, LoginActivity.class);
                 startActivity(i);
                 getActivity().finish();
-
             }
 
+        });
+
+        profileLikedPosts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = ProfileFragment.this.getActivity();
+                Intent i = new Intent(context, LikedPostsActivity.class);
+                startActivity(i);
+                getActivity().finish();
+            }
         });
     }
 
