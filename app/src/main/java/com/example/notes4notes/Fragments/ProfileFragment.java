@@ -1,7 +1,7 @@
 package com.example.notes4notes.Fragments;
 
+import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,13 +17,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.example.notes4notes.Adapters.PostsAdapter;
 import com.example.notes4notes.LoginActivity;
 import com.example.notes4notes.Models.Post;
 import com.example.notes4notes.Models.User;
 import com.example.notes4notes.R;
-import com.example.notes4notes.RegisterActivity;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -117,11 +115,16 @@ public class ProfileFragment extends AbstractFragment {
             Glide.with(view.getContext()).load(profilePic.getUrl()).into(profileProfilePic);
         else
             Glide.with(view.getContext()).load("@drawable/ic_profile").into(profileProfilePic);
+
         profileLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ProfileFragment.this.getActivity(), LoginActivity.class);
+                ParseUser.logOut();
+                Context context = ProfileFragment.this.getActivity();
+                Intent i = new Intent(context, LoginActivity.class);
                 startActivity(i);
+                getActivity().finish();
+
             }
 
         });
