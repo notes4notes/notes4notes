@@ -14,32 +14,40 @@ public class Post extends ParseObject {
     private static final  String KEY_POST_CLASS        = "postClass";
     private static final  String KEY_POST_USER         = "postUser";
 
-
-    /* Getter & Setter Methods */
-
-    public static String getKeyPostTitle() {
-        return KEY_POST_TITLE;
+    /* Getter Methods for Fields */
+    public  String  getPostUserName(){
+        return  "@" + this.getPostAuthor().getString(User.getKeyUserUsername());
     }
-
-    public static String getKeyPostDescription() {
-        return KEY_POST_DESCRIPTION;
+    public ParseUser getPostAuthor(){
+        return getParseUser(KEY_POST_USER);
     }
-
-    public static String getKeyPostRating() {
-        return KEY_POST_RATING;
+    public String getPostTitle() {
+        return this.getString(getKeyPostTitle());
     }
-
-    public static String getKeyPostFile() {
-        return KEY_POST_FILE;
+    public String getPostDescription() {
+        return this.getString(getKeyPostDescription());
     }
-
-    public static String getKeyPostClass() {
-        return KEY_POST_CLASS;
+    public int getPostRating(){
+        return this.getInt(getKeyPostRating());
     }
-
-    public static String getKeyPostUser() {
-        return KEY_POST_USER;
+    public String getPostAuthorProfileImageURL() {
+        return this.getPostAuthor().getParseFile(User.getKeyUserProfilePic()).getUrl();
     }
+    /* Getter Methods for Post Keys */
+
+
+
+    public static String getKeyPostTitle() { return KEY_POST_TITLE; }
+
+    public static String getKeyPostDescription() {return KEY_POST_DESCRIPTION;}
+
+    public static String getKeyPostRating() {return KEY_POST_RATING; }
+
+    public static String getKeyPostFile() {return KEY_POST_FILE;}
+
+    public static String getKeyPostClass() {return KEY_POST_CLASS; }
+
+    public static String getKeyPostUser() { return KEY_POST_USER; }
 
     public String getDescription(){
         return getString(KEY_POST_DESCRIPTION);
@@ -64,9 +72,7 @@ public class Post extends ParseObject {
     public void setFile(ParseFile parseFile){
         put(KEY_POST_FILE, parseFile);
     }
-    public ParseUser getUser(){
-        return getParseUser(KEY_POST_USER);
-    }
+
 
     public void setUser (ParseUser parseUser){
         put(KEY_POST_USER, parseUser);
@@ -79,4 +85,6 @@ public class Post extends ParseObject {
         put(KEY_POST_TITLE, title);
 
     }
+
+
 } // end of Class

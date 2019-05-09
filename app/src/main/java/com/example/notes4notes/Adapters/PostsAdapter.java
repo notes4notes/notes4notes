@@ -10,21 +10,22 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.notes4notes.Models.Post;
-import com.example.notes4notes.Models.User;
 import com.example.notes4notes.R;
-import com.parse.ParseFile;
 
 import java.util.List;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
-
+    private static final String TAG = "Posts Adapter";
     private Context context;
     private List<Post> posts;
-
+    private static final String placeHolderImage = "@drawable/ic_profile";
     public PostsAdapter(Context context, List<Post> posts) {
         this.context = context;
         this.posts = posts;
@@ -62,27 +63,41 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
-            postAuthorImage = itemView.findViewById (R.id.postAuthorImage);
-            postTitle = itemView.findViewById(R.id.postTitle);
-            postAuthor = itemView.findViewById(R.id.postAuthor);
-            postDescription = itemView.findViewById(R.id.postDescription);
-            postRating = itemView.findViewById(R.id.postRating);
-            postLikeButton = itemView.findViewById(R.id.postLikeButton);
-            postUnlikeButton = itemView.findViewById(R.id.postUnlikeButton);
-            postCommentButton = itemView.findViewById(R.id.postCommentButton);
-            postDownloadButton = itemView.findViewById(R.id.postDownloadButton);
-        }
+            postAuthorImage     = itemView.findViewById (R.id.postAuthorImage);
+            postTitle           = itemView.findViewById(R.id.postTitle);
+            postAuthor          = itemView.findViewById(R.id.postAuthor);
+            postDescription     = itemView.findViewById(R.id.postDescription);
+            postRating          = itemView.findViewById(R.id.postRating);
+            postLikeButton      = itemView.findViewById(R.id.postLikeButton);
+            postUnlikeButton    = itemView.findViewById(R.id.postUnlikeButton);
+            postCommentButton   = itemView.findViewById(R.id.postCommentButton);
+            postDownloadButton  = itemView.findViewById(R.id.postDownloadButton);
+        } // end of ViewHolder Constructor
 
          void bind(Post post){
             //TODO: bid the view elements to the post
             Log.e("POSTS_adapter", "bind method invoked");
-            postTitle.setText(post.getUser().getString(User.getKeyUserUsername()));
-            ParseFile profilePic = post.getUser().getParseFile(User.getKeyUserProfilePic());
-            Glide.with(context).load(profilePic).into(postAuthorImage);
-        }
 
+            postAuthor.setText(post.getPostUserName());
+            postTitle.setText(post.getPostTitle());
+            postDescription.setText(post.getPostDescription());
+            postRating.setRating(post.getPostRating());
+            String imgURL = post.getPostAuthorProfileImageURL();
 
-    }
+            if(imgURL != null)
+             Glide.with(context)
+                     .load(imgURL)
+                     .apply(new RequestOptions().override(0, 0))
+                     .apply(new RequestOptions().fitCenter())
+                     .into(postAuthorImage);
+            else
+                Glide.with(context)
+                        .load(placeHolderImage)
+                        .apply(new RequestOptions().override(0, 0))
+                        .apply(new RequestOptions().fitCenter())
+                        .into(postAuthorImage);
+        } // end of method bind
+    } // end of View Holder Class.
 
     public void clear() {
         posts.clear();

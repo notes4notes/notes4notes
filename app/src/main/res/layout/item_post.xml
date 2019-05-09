@@ -13,13 +13,12 @@
         android:layout_width="137dp"
         android:layout_height="148dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:contentDescription="@string/postauthorimage"
         app:layout_constraintBottom_toTopOf="@+id/postAuthor"
         app:layout_constraintEnd_toStartOf="@+id/postDescription"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_profile"
-        android:contentDescription="@string/postauthorimage" />
+        app:srcCompat="@drawable/ic_profile" />
 
     <TextView
         android:id="@+id/postTitle"
@@ -30,6 +29,8 @@
         android:layout_marginEnd="56dp"
         android:layout_marginBottom="10dp"
         android:text="@string/post_title"
+        android:textAlignment="center"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/postDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.75"
@@ -41,19 +42,19 @@
         android:layout_width="116dp"
         android:layout_height="31dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="260dp"
         android:text="@string/post_author"
+        android:textAlignment="viewStart"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/postRating"
-        app:layout_constraintEnd_toStartOf="@+id/postDescription"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/postAuthorImage" />
 
     <TextView
         android:id="@+id/postDescription"
-        android:layout_width="230dp"
-        android:layout_height="101dp"
+        android:layout_width="197dp"
+        android:layout_height="85dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
@@ -70,7 +71,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="284dp"
         android:layout_marginBottom="11dp"
         android:numStars="5"
@@ -86,11 +86,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="14dp"
+        android:contentDescription="@string/likebutton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/postUnlikeButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/arrow_up_float"
-        android:contentDescription="@string/likebutton" />
+        app:layout_constraintTop_toBottomOf="@+id/postRating"
+        app:srcCompat="@android:drawable/arrow_up_float" />
 
     <ImageButton
         android:id="@+id/postUnlikeButton"
@@ -98,12 +99,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
         android:layout_marginEnd="284dp"
+        android:contentDescription="@string/unlikebutton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/postLikeButton"
-        app:srcCompat="@android:drawable/arrow_down_float"
-        android:contentDescription="@string/unlikebutton"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/postRating"
+        app:layout_constraintVertical_bias="0.689"
+        app:srcCompat="@android:drawable/arrow_down_float" />
 
     <Button
         android:id="@+id/postCommentButton"

@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 final Fragment profileFragment = new ProfileFragment();
 
                 // Default
-
+                fragmentManager.beginTransaction().replace(R.id.flContainer,homeFragment).commit();
                 switch (menuItem.getItemId()) {
                     case R.id.action_home:
                         fragmentManager.beginTransaction().replace(R.id.flContainer,homeFragment).commit();
