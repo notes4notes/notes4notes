@@ -7,12 +7,12 @@ import com.parse.ParseUser;
 @ParseClassName("Post")
 public class Post extends ParseObject {
 
-    private static final  String KEY_POST_TITLE        = "title"       ;
-    private static final  String KEY_POST_DESCRIPTION  = "description" ;
-    private static final  String KEY_POST_RATING       = "postRating"  ;
-    private static final  String KEY_POST_FILE         = "postFile"    ;
-    private static final  String KEY_POST_CLASS        = "postClass";
-    private static final  String KEY_POST_USER         = "postUser";
+    private static final  String KEY_POST_TITLE        = "postTitle"       ;
+    private static final  String KEY_POST_DESCRIPTION  = "postDescription" ;
+    private static final  String KEY_POST_RATING       = "postRating"      ;
+    private static final  String KEY_POST_FILE         = "postFile"        ;
+    private static final  String KEY_POST_CLASS        = "postClass"       ;
+    private static final  String KEY_POST_USER         = "postUser"        ;
 
     /* Getter Methods for Fields */
     public  String  getPostUserName(){
