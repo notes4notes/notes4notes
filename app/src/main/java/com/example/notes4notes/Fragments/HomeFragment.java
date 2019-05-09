@@ -26,10 +26,10 @@ public class HomeFragment extends AbstractFragment {
     private RecyclerView rvHome;
 
     /** Posts */
-    List <Post>     mPosts;
+    protected List <Post> mPosts;
 
     static final String TAG = "Home Fragment";
-    private PostsAdapter adapter;
+    protected PostsAdapter adapter;
 
     @Nullable
     @Override
