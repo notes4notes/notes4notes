@@ -1,5 +1,6 @@
 package com.example.notes4notes.Fragments;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,11 +16,17 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.notes4notes.Adapters.PostsAdapter;
+import com.example.notes4notes.LoginActivity;
 import com.example.notes4notes.Models.Post;
+import com.example.notes4notes.Models.User;
 import com.example.notes4notes.R;
+import com.example.notes4notes.RegisterActivity;
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
@@ -49,18 +56,14 @@ public class ProfileFragment extends AbstractFragment {
 
         @Override
         public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-            profileName = view.findViewById(R.id.profile_name);
-            profileUsername = view.findViewById(R.id.profile_username);
-            profileLikedPosts = view.findViewById(R.id.profile_liked_posts);
-            profileLogout = view.findViewById(R.id.profile_logout);
-            profileProfilePic = view.findViewById(R.id.profile_profile_pic);
+            profileBind(view);
             recyclerViewConfig(view);
             queryPosts();
         }
 
 
         protected void recyclerViewConfig(View view){
-            rvProfile = view.findViewById(R.id.recycleViewPosts);
+            rvProfile = view.findViewById(R.id.rv_profile);
             /* Create the data source */
             mPosts  = new ArrayList<>();
 
@@ -100,5 +103,28 @@ public class ProfileFragment extends AbstractFragment {
             }
         });
     } // end of Query Posts
+
+    protected void profileBind(View view){
+        profileName = view.findViewById(R.id.profile_name);
+        profileUsername = view.findViewById(R.id.profile_username);
+        profileLikedPosts = view.findViewById(R.id.profile_liked_posts);
+        profileLogout = view.findViewById(R.id.profile_logout);
+        profileProfilePic = view.findViewById(R.id.profile_profile_pic);
+
+        profileUsername.setText(ParseUser.getCurrentUser().getUsername());
+        ParseFile profilePic = ParseUser.getCurrentUser().getParseFile(User.getKeyUserProfilePic());
+        if (profilePic !=null)
+            Glide.with(view.getContext()).load(profilePic.getUrl()).into(profileProfilePic);
+        else
+            Glide.with(view.getContext()).load("@drawable/ic_profile").into(profileProfilePic);
+        profileLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ProfileFragment.this.getActivity(), LoginActivity.class);
+                startActivity(i);
+            }
+
+        });
+    }
 
 }
