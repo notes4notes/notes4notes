@@ -10,10 +10,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.example.notes4notes.Models.Post;
 import com.example.notes4notes.Models.User;
@@ -78,10 +76,9 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
          void bind(Post post){
             //TODO: bid the view elements to the post
             Log.e("POSTS_adapter", "bind method invoked");
-            postTitle.setText(post.getUser().getUsername());
+            postTitle.setText(post.getUser().getString(User.getKeyUserUsername()));
             ParseFile profilePic = post.getUser().getParseFile(User.getKeyUserProfilePic());
             Glide.with(context).load(profilePic).into(postAuthorImage);
-
         }
 
 

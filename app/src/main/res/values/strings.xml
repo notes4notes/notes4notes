@@ -21,4 +21,12 @@
     <string name="download">Download</string>
     <string name="comment">Comment</string>
     <string name="commentHint">Good Job! loving the notes</string>
+    <string name="composeTagHint">CSCI 220 etc.</string>
+    <string name="submit">Submit</string>
+    <string name="hintComposeTitle">Notes For CSCI 313</string>
+    <string name="hintComposeDescription">My review notes for 313 with Jao</string>
+    <string name="title">Title:</string>
+    <string name="nullContentDesc">not important</string>
+    <string name="description">Description:</string>
+    <string name="tags">Tags</string>
 </resources>

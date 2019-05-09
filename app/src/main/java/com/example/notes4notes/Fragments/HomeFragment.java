@@ -62,7 +62,7 @@ public class HomeFragment extends AbstractFragment {
                 adapter.notifyDataSetChanged();
                 for (int i = 0; i < posts.size(); i++){
                     Post post = posts.get(i);
-                    Log.d(TAG, "Post" + posts.get(i).getDescription() + " username:" + post.getUser().getUsername());
+
                 }
             }
         });

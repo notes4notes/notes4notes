@@ -33,8 +33,10 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
                 final Fragment composeFragment = new ComposeFragment();
-                final Fragment homeFragment   = new HomeFragment    ();
+                final Fragment homeFragment    = new HomeFragment    ();
                 final Fragment profileFragment = new ProfileFragment();
+
+                // Default
 
                 switch (menuItem.getItemId()) {
                     case R.id.action_home:
