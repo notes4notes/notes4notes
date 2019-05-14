@@ -29,7 +29,7 @@ A way for Queens College students to exchange notes and resources easily and eff
 
 - [x] Login to account 
 - [x] Register for account 
-- [x] See a feed of posts. 
+- [x] See posts timeline.  
 - [ ] Upload notes     (.pdf, images).
 - [ ] Parse Uploaded images into a .pdf. 
 - [ ] Users should be able to Download notes as .pdf (Account Required). 
