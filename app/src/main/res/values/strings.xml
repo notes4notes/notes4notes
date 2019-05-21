@@ -29,4 +29,7 @@
     <string name="nullContentDesc">not important</string>
     <string name="description">Description:</string>
     <string name="tags">Tags</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="commentBodyHint">Write something meaningful here</string>
 </resources>

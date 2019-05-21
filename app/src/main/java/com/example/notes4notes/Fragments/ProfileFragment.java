@@ -110,7 +110,9 @@ public class ProfileFragment extends AbstractFragment {
         profileLikedPosts = view.findViewById(R.id.profile_liked_posts);
         profileLogout = view.findViewById(R.id.profile_logout);
         profileProfilePic = view.findViewById(R.id.profile_profile_pic);
-
+        String fullName = ParseUser.getCurrentUser().getString(User.getKeyUserFirstName())
+                + " " + ParseUser.getCurrentUser().getString(User.getKeyUserLastName());
+        profileName.setText(fullName);
         profileUsername.setText(ParseUser.getCurrentUser().getUsername());
         ParseFile profilePic = ParseUser.getCurrentUser().getParseFile(User.getKeyUserProfilePic());
         if (profilePic !=null)

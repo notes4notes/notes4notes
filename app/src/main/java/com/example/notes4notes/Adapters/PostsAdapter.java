@@ -1,6 +1,7 @@
 package com.example.notes4notes.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.notes4notes.Activities.CommentActivity;
 import com.example.notes4notes.Models.Post;
 import com.example.notes4notes.R;
 
@@ -75,13 +77,25 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
         } // end of ViewHolder Constructor
 
          void bind(Post post){
-            //TODO: bid the view elements to the post
-            Log.e("POSTS_adapter", "bind method invoked");
 
+            Log.e("POSTS_adapter", "bind method invoked");
             postAuthor.setText(post.getPostUserName());
             postTitle.setText(post.getPostTitle());
             postDescription.setText(post.getPostDescription());
             postRating.setRating(post.getPostRating());
+            postCommentButton.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                   Intent intent = new Intent(v.getContext(), CommentActivity.class);
+                    v.getContext().startActivity(intent);
+                }
+            });
+             postDownloadButton.setOnClickListener(new View.OnClickListener(){
+                 @Override
+                 public void onClick(View v) {
+
+                 }
+             });
             String imgURL = post.getPostAuthorProfileImageURL();
 
             if(imgURL != null)
@@ -99,14 +113,25 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
         } // end of method bind
     } // end of View Holder Class.
 
-    public void clear() {
+    private void clear() {
         posts.clear();
         notifyDataSetChanged();
-    }
+    } // end of addAll method
+
     // Add a list of items -- change to type used
-    public void addAll(List<Post> list) {
+
+    private void addAll(List<Post> list) {
         posts.addAll(list);
         notifyDataSetChanged();
+    } // end of addAll method
+/*
+    private void startCommentActivity() {
+        Intent i = new Intent(getContext(), RegisterActivity.class);
+        startActivity(i);
+    }
+  */
+    private void startDownloadActivity(){
+
     }
 
-}
+} // end of class Post Adapters

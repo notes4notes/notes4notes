@@ -30,11 +30,11 @@ public class Post extends ParseObject {
     public int getPostRating(){
         return this.getInt(getKeyPostRating());
     }
+
     public String getPostAuthorProfileImageURL() {
         return this.getPostAuthor().getParseFile(User.getKeyUserProfilePic()).getUrl();
     }
     /* Getter Methods for Post Keys */
-
 
 
     public static String getKeyPostTitle() { return KEY_POST_TITLE; }
@@ -42,8 +42,6 @@ public class Post extends ParseObject {
     public static String getKeyPostDescription() {return KEY_POST_DESCRIPTION;}
 
     public static String getKeyPostRating() {return KEY_POST_RATING; }
-
-    public static String getKeyPostFile() {return KEY_POST_FILE;}
 
     public static String getKeyPostClass() {return KEY_POST_CLASS; }
 
