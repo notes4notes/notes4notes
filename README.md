@@ -50,6 +50,7 @@ Here's a walkthrough of implemented user stories:
 <img src='login_screen.gif' title='Login Screen Walkthrough' width='' alt='Login Screen Walkthrough' />
 <img src='20190506_221233.gif' title='Compose Screen Walkthrough' width='' alt='Compose Screen Walkthrough' />
 <img src='Documentation/0Ck6gudvLj.gif' title='General Walkthrough' width='' alt='General Walkthrough' />
+<img src='Documentation/PreFinal.gif' title='General Walkthrough' width='' alt='General Walkthrough' />
 
 ### 2. Screen Archetypes
 * Login/Sign-up Screen
