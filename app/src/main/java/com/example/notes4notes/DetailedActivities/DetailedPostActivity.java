@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.notes4notes.Activities.CommentActivity;
 import com.example.notes4notes.Adapters.CommentAdapter;
 import com.example.notes4notes.Adapters.PostsAdapter;
 import com.example.notes4notes.MainActivity;
@@ -24,6 +26,9 @@ import com.example.notes4notes.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +45,8 @@ public class DetailedPostActivity extends AppCompatActivity {
     RecyclerView rvComments;
     List<Comment> comments;
     CommentAdapter adapter;
+
+    Button commentBtn;
 
 
 
@@ -61,13 +68,23 @@ public class DetailedPostActivity extends AppCompatActivity {
         detailPostDescription = findViewById(R.id.postDetailDescription);
         detailPostRating = findViewById(R.id.postDetailRating);
         rvComments = findViewById(R.id.postDetailCommentStream);
-
+        commentBtn = findViewById(R.id.postDetailCommentButton);
         String postAuthor = getIntent().getStringExtra("postAuthor");
         String postTitle = getIntent().getStringExtra("postTitle");
         String postDescription = getIntent().getStringExtra("postDescription");
         String postImg = getIntent().getStringExtra("postImg");
         String postString = getIntent().getStringExtra("postString");
         int rating = Integer.parseInt(getIntent().getStringExtra("postRating"));
+
+        commentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), CommentActivity.class);
+                intent.putExtra("postString", getIntent().getStringExtra("postString"));
+                intent.putExtra("username", ParseUser.getCurrentUser().getUsername());
+                v.getContext().startActivity(intent);
+            }
+        });
 
         detailPostTitle.setText(postTitle);
         detailPostAuthor.setText(postAuthor);
@@ -96,7 +113,11 @@ public class DetailedPostActivity extends AppCompatActivity {
 
         ParseQuery<Comment> commentQuery = new ParseQuery<Comment>(Comment.class);
         //commentQuery.include("commentContent");
-        commentQuery.include(Comment.KEY_OBJECT_ID);
+       // commentQuery.include(Comment.KEY_OBJECT_ID);
+        commentQuery.include("commentPost");
+        Post post = new Post();
+        post.setObjectId(getIntent().getStringExtra("postString"));
+        commentQuery.whereEqualTo(Comment.getKeyCommentPost(),post);
         commentQuery.setLimit(3);
         commentQuery.addDescendingOrder(Comment.KEY_CREATED_AT);
         commentQuery.findInBackground(new FindCallback<Comment>() {
