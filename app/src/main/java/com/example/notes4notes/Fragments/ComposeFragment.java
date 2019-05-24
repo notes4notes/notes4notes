@@ -29,6 +29,7 @@ import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,7 +49,6 @@ public class ComposeFragment extends AbstractFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         bind (view);
     } // end of onViewCreated
-
 
     private void bind(View view){
         composeTitle         =  view.findViewById(R.id.composeTitle);
@@ -74,41 +74,53 @@ public class ComposeFragment extends AbstractFragment {
 
     private void submitPost(){
 
+
+
+        ParseObject post = new Post();
         String       postTitle        = composeTitle.getText().toString();
         String       postDescription  = composeDescription.getText().toString();
         String       postTags         = composeTagClass.getText().toString();
         ParseObject  postAuthor       = ParseUser.getCurrentUser();
-        Boolean     existenceCheck    = checkSubmission(postTitle, postDescription);
+        boolean      existenceCheck    = checkSubmission(postTitle, postDescription);
+        File file = new File(filePath);
+        ParseObject fileObj =  ParseObject.create("UploadedFiles");
         ParseFile    parseFile = null;
-        String fileName = "alpha.png";
-        ParseObject post = new Post();
-        ParseObject fileObj =  ParseObject.create("UploadedFiles"); // new UploadedFiles(); //
+        Context context =getContext();
+        byte[] data;
+        assert context != null;
 
-        byte[] data = null;
-        if(existenceCheck) {
+        if(filePath!= null){
             try {
                 data = FileUtils.readFileToByteArray(new File(filePath));
+                parseFile = new ParseFile(FilenameUtils.getName(filePath) ,data );
+                parseFile.saveInBackground();
+                fileObj.put(UploadedFiles.getKeyUploadedFiles(), parseFile);
             } catch (IOException e) {
                 e.printStackTrace();
+                Log.e(TAG, "Exception thrown by byte array" + "\n" + e);
             } finally {
-                Log.e(TAG, "File Exists: " + String.valueOf((new File(filePath)).exists()));
-                parseFile = new ParseFile(fileName, data);
+                Log.e(TAG, "File Exists: " + (file.exists()));
             }
         }
-
+        
         if (filePath != null && existenceCheck){
-            Log.e(TAG, filePath);
+            
+
             fileObj.put(UploadedFiles.getKeyAssociatedPost(), post);
             fileObj.put(UploadedFiles.getKeyUploader(), postAuthor);
-            fileObj.put(UploadedFiles.getKeyUploadedFiles(), parseFile);
+
             fileObj.saveInBackground(new SaveCallback() {
                 @Override
                 public void done(ParseException e) {
                     if (e != null){
-                        Log.e(TAG, "Error While uploading file");
+                        Log.e(TAG, "Error While uploading file: " + e);
                         e.printStackTrace();
                         Toast.makeText(getContext(), "Error While uploading file", Toast.LENGTH_SHORT).show();
+                    } else{
+                        Log.e(TAG,  "File Uploaded Successfully");
+                        Toast.makeText(getContext(), "File Uploaded Successfully", Toast.LENGTH_SHORT).show();
                     }
+
                 }// done
             });
         } else
@@ -198,9 +210,7 @@ public class ComposeFragment extends AbstractFragment {
         } // endif
     } // end of method onActivityResult()
 
-    /**
-     * @param data intent
-     */
+
     private void generateSelectedFileURI(Intent data){
         Uri selectedFileUri = data.getData();
         String realFilePath = null;
@@ -226,6 +236,7 @@ public class ComposeFragment extends AbstractFragment {
             Toast.makeText(context,"File Added Successfully!" + filePath,Toast.LENGTH_SHORT).show();
         }else{ Toast.makeText(context,"Invalid Path",Toast.LENGTH_SHORT).show(); }
     } // end of method generateSelectedFileURI
+
 
 } // end of class
 

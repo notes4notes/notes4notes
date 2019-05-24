@@ -90,53 +90,23 @@ public class CommentActivity extends AppCompatActivity  {
         String postID = getIntent().getStringExtra("postString");
         ParseObject post = new Post();  // Post(postID);
         post.setObjectId(postID);
-        //Post post =  Parcels.unwrap(getIntent().getParcelableExtra("postId"));
-        // post = (ParseObject) getIntent().getSerializableExtra("postId");
-        if (post == null)
-            Log.d(TAG, "Post is null");
-        else
-            Log.d(TAG, "Post is Valid");
         ParseObject comment = ParseObject.create("Comment");
-
         try {
             comment.put(Comment.getKeyCommentContent(), commentText);
             comment.put(Comment.getKeyCommentUser(), ParseUser.getCurrentUser());
             comment.put(Comment.getKeyCommentPost(), post);
-            /// Log.d(TAG, post.getObjectId());
         }catch (Exception e){e.printStackTrace();}
 
         comment.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
                 if(e != null){
-                    Log.d("comment", "savecomment error");
-                    return;
-                }
-                Log.d("comment", "Success");
+                    Log.d("comment", "Error: Comment not Saved.");
+                    return; }
+                Log.d("comment", "Success: Comment Saved Successfully");
             }
         });
     } // end of method saveComment
 
 }// end of class
 
-
-                    /*comment.put("commentContent", commentEt.getText().toString());
-                    comment.put("commentUser", ParseUser.getCurrentUser());
-          comment.put("postID", getIntent().getExtras().getString("postID"));*/
-        /*comment.setPostID(getIntent().getExtras().getString("postID"));
-        comment.setKeyCommentUser(ParseUser.getCurrentUser().toString());
-        comment.settKeyCommentContent(commentText);*/
-
-                /*btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                if(Integer.parseInt(commentTv.getText().toString()) < 100 && Integer.parseInt(commentTv.getText().toString()) > 0 ) {
-                    Toast.makeText(v.getContext(), "Comment Added! ", Toast.LENGTH_SHORT).show();
-                  //  saveComment(commentEt.getText().toString());
-                    finish();
-                }
-                else{
-                    Toast.makeText(v.getContext(), "Invalid comment, try again" + value, Toast.LENGTH_SHORT).show();
-                }
-            }
-        });*/
