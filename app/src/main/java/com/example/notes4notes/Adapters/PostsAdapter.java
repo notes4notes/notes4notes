@@ -2,6 +2,7 @@ package com.example.notes4notes.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,7 +23,13 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.notes4notes.Activities.CommentActivity;
 import com.example.notes4notes.DetailedActivities.DetailedPostActivity;
 import com.example.notes4notes.Models.Post;
+import com.example.notes4notes.Models.UploadedFiles;
 import com.example.notes4notes.R;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseFile;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import org.parceler.Parcels;
@@ -33,7 +41,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     private Context context;
     private List<Post> posts;
     private static final String placeHolderImage = "@drawable/ic_profile";
-
+    private ParseObject temp;
     public PostsAdapter(Context context, List<Post> posts) {
         this.context = context;
         this.posts = posts;
@@ -137,11 +145,37 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
              postDownloadButton.setOnClickListener(new View.OnClickListener(){
                  @Override
                  public void onClick(View v) {
-
+                   ParseObject uploadedFile = query(post);
+                   if (uploadedFile != null){
+                       ParseFile file = uploadedFile.getParseFile(UploadedFiles.getKeyUploadedFiles());
+                       String path = file.getUrl();
+                       context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(path)));
+                   }else
+                       Toast.makeText(context, "No File Found", Toast.LENGTH_SHORT).show();
                  }
              });
         } // end of method bind
     } // end of View Holder Class.
+
+    private ParseObject query(Post post){
+
+        ParseQuery <ParseObject> query = ParseQuery.getQuery("UploadedFiles");
+        query.whereEqualTo(UploadedFiles.getKeyAssociatedPost(), post);
+        query.getFirstInBackground(new GetCallback<ParseObject>() {
+
+            @Override
+            public void done(ParseObject object, ParseException e) {
+                if (object == null) {
+                    Toast.makeText(context, "Error Retrieving File ", Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "The getFirst request failed.");
+                } else {
+                    Log.d(TAG, "Retrieved the object.");
+                    temp = object;  // temp is global
+                }
+            }
+        });
+        return temp;
+    }
 
     private void clear() {
         posts.clear();
