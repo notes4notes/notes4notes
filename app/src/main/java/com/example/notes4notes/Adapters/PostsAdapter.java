@@ -2,6 +2,7 @@ package com.example.notes4notes.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,6 +71,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         private Button postDownloadButton;
         private String postID;
         RelativeLayout container;
+        Boolean like = false;
+        Boolean dislike = false;
 
 
         ViewHolder(@NonNull View itemView) {
@@ -84,6 +87,38 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             postCommentButton   = itemView.findViewById(R.id.postCommentButton);
             postDownloadButton  = itemView.findViewById(R.id.postDownloadButton);
             container = itemView.findViewById(R.id.container);
+            postLikeButton.setBackgroundColor(0);
+            postUnlikeButton.setBackgroundColor(0);
+
+            postLikeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(!like) {
+                        postLikeButton.setBackgroundColor(Color.parseColor("GREEN"));
+                        postUnlikeButton.setBackgroundColor(0);
+                        like = true;
+                    }
+                    else{
+                        postLikeButton.setBackgroundColor(0);
+                        like = false;
+                    }
+                }
+            });
+
+            postUnlikeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(!dislike) {
+                        postUnlikeButton.setBackgroundColor(Color.parseColor("RED"));
+                        postLikeButton.setBackgroundColor(0);
+                        dislike = true;
+                    }
+                    else{
+                        postUnlikeButton.setBackgroundColor(0);
+                        dislike = false;
+                    }
+                }
+            });
         } // end of ViewHolder Constructor
 
          void bind(final Post post){
