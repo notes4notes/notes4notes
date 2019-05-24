@@ -78,7 +78,7 @@ public class CommentActivity extends AppCompatActivity {
             public void onClick(final View v) {
                 if(Integer.parseInt(commentTv.getText().toString()) < 100 && Integer.parseInt(commentTv.getText().toString()) > 0 ) {
                     Toast.makeText(v.getContext(), "Comment Added! ", Toast.LENGTH_SHORT).show();
-                    saveComment(commentEt.getText().toString());
+                    saveComment("test");
                     finish();
                 }
                 else{
@@ -88,7 +88,7 @@ public class CommentActivity extends AppCompatActivity {
         });
     }
     private void saveComment(String commentText){
-        Comment comment = new Comment();
+        ParseObject comment = new Comment();
                     /*comment.put("commentContent", commentEt.getText().toString());
                     comment.put("commentUser", ParseUser.getCurrentUser());
                     comment.put("postID", getIntent().getExtras().getString("postID"));*/

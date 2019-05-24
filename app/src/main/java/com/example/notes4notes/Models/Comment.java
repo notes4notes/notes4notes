@@ -1,6 +1,8 @@
 package com.example.notes4notes.Models;
 import com.parse.ParseClassName;
+import com.parse.ParseFile;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 @ParseClassName("Comment")
 public class Comment extends ParseObject {

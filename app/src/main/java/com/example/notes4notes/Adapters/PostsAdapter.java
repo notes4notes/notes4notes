@@ -20,7 +20,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.notes4notes.Activities.CommentActivity;
 import com.example.notes4notes.Models.Post;
+import com.example.notes4notes.Models.User;
 import com.example.notes4notes.R;
+import com.parse.ParseFile;
+import com.parse.ParseUser;
 
 import java.util.List;
 
@@ -101,20 +104,21 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
 
                  }
              });
-            String imgURL = post.getPostAuthorProfileImageURL();
-
-            if(imgURL != null)
-             Glide.with(context)
-                     .load(imgURL)
-                     .apply(new RequestOptions().override(0, 0))
-                     .apply(new RequestOptions().fitCenter())
-                     .into(postAuthorImage);
-            else
-                Glide.with(context)
-                        .load(placeHolderImage)
-                        .apply(new RequestOptions().override(0, 0))
-                        .apply(new RequestOptions().fitCenter())
-                        .into(postAuthorImage);
+             try{
+                 String imgURL = post.getPostAuthorProfileImageURL();
+                     Glide.with(context)
+                             .load(imgURL)
+                             .apply(new RequestOptions().override(0, 0))
+                             .apply(new RequestOptions().fitCenter())
+                             .into(postAuthorImage);
+             }
+             catch(Exception e){
+                 Glide.with(context)
+                         .load("http://www.protexinvet.com/userfiles/image/cute-2500929_1920_(1).jpg")
+                         .apply(new RequestOptions().override(0, 0))
+                         .apply(new RequestOptions().fitCenter())
+                         .into(postAuthorImage);
+             }
         } // end of method bind
     } // end of View Holder Class.
 

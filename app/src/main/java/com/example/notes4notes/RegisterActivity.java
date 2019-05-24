@@ -12,8 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.notes4notes.Models.User;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
+
+import java.io.File;
 
 
 public class RegisterActivity extends AppCompatActivity {
@@ -58,6 +61,9 @@ public class RegisterActivity extends AppCompatActivity {
                     newUser.setPassword(password);
                     newUser.put(User.getKeyUserFirstName(), firstName);
                     newUser.put(User.getKeyUserLastName(),lastName);
+                    File test = new File("test.jpg");
+                    ParseFile bun = new ParseFile(test);
+                    //newUser.put("userProfilePic", bun);
                     newUser.signUpInBackground(new SignUpCallback() {
                         public void done(ParseException e) {
                             if (e == null) {

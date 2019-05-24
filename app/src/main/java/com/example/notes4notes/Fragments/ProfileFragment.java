@@ -118,7 +118,7 @@ public class ProfileFragment extends AbstractFragment {
         if (profilePic !=null)
             Glide.with(view.getContext()).load(profilePic.getUrl()).override(300,300).into(profileProfilePic);
         else
-            Glide.with(view.getContext()).load("@drawable/ic_profile").apply(new RequestOptions().centerCrop()).into(profileProfilePic);
+            Glide.with(view.getContext()).load("http://www.protexinvet.com/userfiles/image/cute-2500929_1920_(1).jpg").apply(new RequestOptions().centerCrop()).into(profileProfilePic);
 
         profileLogout.setOnClickListener(new View.OnClickListener() {
             @Override
