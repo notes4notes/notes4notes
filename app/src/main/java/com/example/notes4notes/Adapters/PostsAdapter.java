@@ -11,7 +11,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,18 +19,18 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.notes4notes.Activities.CommentActivity;
 import com.example.notes4notes.Models.Post;
-import com.example.notes4notes.Models.User;
 import com.example.notes4notes.R;
-import com.parse.ParseFile;
-import com.parse.ParseUser;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
-public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
+public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
     private static final String TAG = "Posts Adapter";
     private Context context;
     private List<Post> posts;
     private static final String placeHolderImage = "@drawable/ic_profile";
+
     public PostsAdapter(Context context, List<Post> posts) {
         this.context = context;
         this.posts = posts;
@@ -88,13 +87,12 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
             postTitle.setText(post.getPostTitle());
             postDescription.setText(post.getPostDescription());
             postRating.setRating(post.getPostRating());
-            postID = post.getKeyId();
             postCommentButton.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
-                   Intent intent = new Intent(v.getContext(), CommentActivity.class);
-                 //  String id = post.getKeyId().toString();
-                   intent.putExtra("postID", postID);
+                    Intent intent = new Intent(v.getContext(), CommentActivity.class);
+                    intent.putExtra("postString", post.getObjectId());
+                    intent.putExtra("postID", Parcels.wrap(post));
                     v.getContext().startActivity(intent);
                 }
             });

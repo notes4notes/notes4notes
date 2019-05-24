@@ -1,11 +1,16 @@
 package com.example.notes4notes.Models;
+import android.os.Parcelable;
+
 import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
+import org.parceler.Parcel;
+
+@Parcel(analyze = Post.class)
 @ParseClassName("Post")
-public class Post extends ParseObject {
+public class Post extends ParseObject implements Parcelable {
 
     private static final  String KEY_POST_TITLE        = "postTitle"       ;
     private static final  String KEY_POST_DESCRIPTION  = "postDescription" ;
@@ -14,6 +19,8 @@ public class Post extends ParseObject {
     private static final  String KEY_POST_CLASS        = "postClass"       ;
     private static final  String KEY_POST_USER         = "postUser"        ;
     private static final  String KEY_ID                = "objectId"        ;
+
+    public Post(){ } // Required by Parceler
 
     /* Getter Methods for Fields */
     public  String  getPostUserName(){

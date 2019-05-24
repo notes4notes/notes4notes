@@ -1,17 +1,19 @@
 package com.example.notes4notes.Models;
-import com.parse.ParseClassName;
-import com.parse.ParseFile;
-import com.parse.ParseObject;
-import com.parse.ParseUser;
+import android.os.Parcelable;
 
+import com.parse.ParseClassName;
+import com.parse.ParseObject;
+
+import org.parceler.Parcel;
+
+@Parcel(analyze = Comment.class)
 @ParseClassName("Comment")
-public class Comment extends ParseObject {
+public class Comment extends ParseObject implements Parcelable {
     private static final  String KEY_COMMENT_USER         = "commentUser"   ;
     private static final  String KEY_COMMENT_POST         = "commentPost"   ;
     private static final  String KEY_COMMENT_CONTENT      = "commentContent";
     private static final  String KEY_COMMENT_CREATED_AT   = "createdAt"     ;
     private static final  String KEY_POST_ID              = "postID"        ;
-
     //Getter Methods
     public static String getKeyCommentUser() {
         return KEY_COMMENT_USER;

@@ -39,6 +39,10 @@ dependencies {
     //Apache Libraries
     implementation 'commons-io:commons-io:2.6'
 
+    //Parceler Libraries
+    implementation 'org.parceler:parceler-api:1.1.12'
+    annotationProcessor 'org.parceler:parceler:1.1.12'
+
     //Parse Dependencies
     implementation 'com.parse.bolts:bolts-android:1.4.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
