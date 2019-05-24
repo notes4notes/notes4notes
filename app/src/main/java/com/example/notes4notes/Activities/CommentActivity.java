@@ -96,6 +96,7 @@ public class CommentActivity extends AppCompatActivity  {
             comment.put(Comment.getKeyCommentContent(), commentText);
             comment.put(Comment.getKeyCommentUser(), ParseUser.getCurrentUser());
             comment.put(Comment.getKeyCommentPost(), post);
+            comment.put("username", username);
         }catch (Exception e){e.printStackTrace();}
 
         comment.saveInBackground(new SaveCallback() {

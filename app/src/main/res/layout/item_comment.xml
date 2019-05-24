@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="#28E2AAAA">
 
     <TextView
         android:id="@+id/commentAuthor"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="linda"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="5dp"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/commentText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="hey man this is the best notes i've ever read woah"
-        app:layout_constraintTop_toBottomOf="@+id/commentAuthor"
-        tools:layout_editor_absoluteX="-16dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_below="@+id/commentAuthor"
+        android:text="hey man this is the best notes i've ever read woah" />
+
+</RelativeLayout>

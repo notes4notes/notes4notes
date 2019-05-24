@@ -7,7 +7,6 @@
     android:layout_height="match_parent">
 
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/postDetailContainer"
         android:layout_width="match_parent"
@@ -15,6 +14,7 @@
         android:layout_margin="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="9dp"
+        android:background="#4B8D8989"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -121,12 +121,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/postDetailCommentStream"
         android:layout_width="365dp"
-        android:layout_height="100dp"
+        android:layout_height="350dp"
         android:layout_marginStart="92dp"
-        android:layout_marginTop="41dp"
         android:layout_marginEnd="70dp"
-        android:layout_marginBottom="34dp"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.63"
         app:layout_constraintStart_toStartOf="parent"
@@ -142,34 +139,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="347dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="29dp"
-        android:ems="10"
-        android:hint="@string/commentHint"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/postDetailCommentButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.372"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postDetailCommentStream" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/detailBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/postDetailCommentButton"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

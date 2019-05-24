@@ -25,6 +25,7 @@ public class Comment extends ParseObject implements Parcelable {
     public void setKeyCommentUser(String user){put(KEY_COMMENT_USER, user);}
     public String getUsername(){ return getString(username);}
     public String getComment(){return getString(commentcontent);}
+    public String getPostKey(){return getString("commentPost");}
     public static String getKeyCommentPost() {
         return KEY_COMMENT_POST;
     }
