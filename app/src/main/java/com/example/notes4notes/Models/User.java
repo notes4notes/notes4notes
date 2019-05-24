@@ -13,15 +13,25 @@ public class User extends ParseObject {
     private static final  String KEY_USER_EMAIL        = "email"       ;
     private static final  String KEY_USER_PROFILE_PIC  = "userProfilePic" ;
 
-
-
-    public static String getKeyUserProfilePic() {
-        return KEY_USER_PROFILE_PIC;
+    /*Set Methods */
+    public void setUserFirstName(String firstName){
+        this.put(getKeyUserFirstName(), firstName);
+    }
+    public void setUserLastName(String lastName){
+        this.put(getKeyUserLastName(), lastName);
+    }
+    public void setUserEmail(String email){
+        this.put(getKeyUserEmail(), email);
     }
 
 
 
     /*Getter Methods */
+
+    public static String getKeyUserProfilePic() {
+
+        return KEY_USER_PROFILE_PIC;
+    }
     public static String getKeyUserId() {
         return KEY_USER_ID;
     }

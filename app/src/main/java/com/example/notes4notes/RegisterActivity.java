@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.notes4notes.Models.User;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
@@ -29,13 +30,16 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        bind();
+    } // end of onCreate method
+
+    void bind(){
         etFirstName = findViewById(R.id.etFirstName);
         etLastName = findViewById(R.id.etLastName);
         etUsername = findViewById(R.id.etUsername);
         etEmail = findViewById(R.id.etEmail);
         etPass = findViewById(R.id.etPassword);
         btnSignUp = findViewById(R.id.btnSignUp);
-
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,10 +51,13 @@ public class RegisterActivity extends AppCompatActivity {
                 if (firstName.length() <= 0 || lastName.length() <= 0 || username.length() <= 0 || email.length() <= 0 || password.length() <= 0) {
                     Toast.makeText(RegisterActivity.this, "Missing a field", Toast.LENGTH_LONG).show();
                 } else {
+
                     ParseUser newUser = new ParseUser();
                     newUser.setUsername(username);
                     newUser.setEmail(email);
                     newUser.setPassword(password);
+                    newUser.put(User.getKeyUserFirstName(), firstName);
+                    newUser.put(User.getKeyUserLastName(),lastName);
                     newUser.signUpInBackground(new SignUpCallback() {
                         public void done(ParseException e) {
                             if (e == null) {
@@ -67,4 +74,4 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
-}
+} // end of class
