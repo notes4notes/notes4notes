@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.notes4notes.Activities.CommentActivity;
+import com.example.notes4notes.DetailedActivities.DetailedPostActivity;
 import com.example.notes4notes.Models.Post;
 import com.example.notes4notes.R;
 
@@ -66,6 +68,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         private Button postCommentButton;
         private Button postDownloadButton;
         private String postID;
+        RelativeLayout container;
+
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,6 +82,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             postUnlikeButton    = itemView.findViewById(R.id.postUnlikeButton);
             postCommentButton   = itemView.findViewById(R.id.postCommentButton);
             postDownloadButton  = itemView.findViewById(R.id.postDownloadButton);
+            container = itemView.findViewById(R.id.container);
         } // end of ViewHolder Constructor
 
          void bind(final Post post){
@@ -87,6 +92,37 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             postTitle.setText(post.getPostTitle());
             postDescription.setText(post.getPostDescription());
             postRating.setRating(post.getPostRating());
+            String imgURL;
+             try{
+                 imgURL = post.getPostAuthorProfileImageURL();
+                 Glide.with(context)
+                         .load(imgURL)
+                         .apply(new RequestOptions().override(0, 0))
+                         .apply(new RequestOptions().fitCenter())
+                         .into(postAuthorImage);
+             }
+             catch(Exception e){
+                 imgURL = "http://www.protexinvet.com/userfiles/image/cute-2500929_1920_(1).jpg";
+                 Glide.with(context)
+                         .load("http://www.protexinvet.com/userfiles/image/cute-2500929_1920_(1).jpg")
+                         .apply(new RequestOptions().override(0, 0))
+                         .apply(new RequestOptions().fitCenter())
+                         .into(postAuthorImage);
+             }
+             final String finalImgURL = imgURL;
+             postTitle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), DetailedPostActivity.class);
+                    intent.putExtra("postAuthor", postAuthor.getText().toString());
+                    intent.putExtra("postTitle", postTitle.getText().toString());
+                    intent.putExtra("postDescription", postDescription.getText().toString());
+                    intent.putExtra("postRating", ((int)postRating.getRating())+"");
+                    intent.putExtra("postImg", finalImgURL);
+                    intent.putExtra("postString", post.getObjectId());
+                    v.getContext().startActivity(intent);
+                }
+            });
             postCommentButton.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
@@ -102,21 +138,6 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
                  }
              });
-             try{
-                 String imgURL = post.getPostAuthorProfileImageURL();
-                     Glide.with(context)
-                             .load(imgURL)
-                             .apply(new RequestOptions().override(0, 0))
-                             .apply(new RequestOptions().fitCenter())
-                             .into(postAuthorImage);
-             }
-             catch(Exception e){
-                 Glide.with(context)
-                         .load("http://www.protexinvet.com/userfiles/image/cute-2500929_1920_(1).jpg")
-                         .apply(new RequestOptions().override(0, 0))
-                         .apply(new RequestOptions().fitCenter())
-                         .into(postAuthorImage);
-             }
         } // end of method bind
     } // end of View Holder Class.
 
