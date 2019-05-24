@@ -13,6 +13,7 @@ public class Post extends ParseObject {
     private static final  String KEY_POST_FILE         = "postFile"        ;
     private static final  String KEY_POST_CLASS        = "postClass"       ;
     private static final  String KEY_POST_USER         = "postUser"        ;
+    private static final  String KEY_ID                = "objectId"        ;
 
     /* Getter Methods for Fields */
     public  String  getPostUserName(){
@@ -30,6 +31,7 @@ public class Post extends ParseObject {
     public int getPostRating(){
         return this.getInt(getKeyPostRating());
     }
+    public String getKeyId(){return this.getObjectId();}
 
     public String getPostAuthorProfileImageURL() {
         return this.getPostAuthor().getParseFile(User.getKeyUserProfilePic()).getUrl();

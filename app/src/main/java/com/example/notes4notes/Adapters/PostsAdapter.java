@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -62,6 +63,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
         private ImageButton postUnlikeButton;
         private Button postCommentButton;
         private Button postDownloadButton;
+        private String postID;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -76,17 +78,20 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
             postDownloadButton  = itemView.findViewById(R.id.postDownloadButton);
         } // end of ViewHolder Constructor
 
-         void bind(Post post){
+         void bind(final Post post){
 
             Log.e("POSTS_adapter", "bind method invoked");
             postAuthor.setText(post.getPostUserName());
             postTitle.setText(post.getPostTitle());
             postDescription.setText(post.getPostDescription());
             postRating.setRating(post.getPostRating());
+            postID = post.getKeyId();
             postCommentButton.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
                    Intent intent = new Intent(v.getContext(), CommentActivity.class);
+                 //  String id = post.getKeyId().toString();
+                   intent.putExtra("postID", postID);
                     v.getContext().startActivity(intent);
                 }
             });
