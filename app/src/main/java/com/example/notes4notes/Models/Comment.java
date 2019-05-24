@@ -14,12 +14,17 @@ public class Comment extends ParseObject implements Parcelable {
     private static final  String KEY_COMMENT_CONTENT      = "commentContent";
     private static final  String KEY_COMMENT_CREATED_AT   = "createdAt"     ;
     private static final  String KEY_POST_ID              = "postID"        ;
+    private static final String username = "username";
+    private static final String commentcontent = "commentContent";
+
+    public Comment(){ }
     //Getter Methods
     public static String getKeyCommentUser() {
         return KEY_COMMENT_USER;
     }
     public void setKeyCommentUser(String user){put(KEY_COMMENT_USER, user);}
-
+    public String getUsername(){ return getString(username);}
+    public String getComment(){return getString(commentcontent);}
     public static String getKeyCommentPost() {
         return KEY_COMMENT_POST;
     }

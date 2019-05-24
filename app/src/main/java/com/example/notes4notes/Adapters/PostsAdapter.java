@@ -22,6 +22,7 @@ import com.example.notes4notes.Activities.CommentActivity;
 import com.example.notes4notes.DetailedActivities.DetailedPostActivity;
 import com.example.notes4notes.Models.Post;
 import com.example.notes4notes.R;
+import com.parse.ParseUser;
 
 import org.parceler.Parcels;
 
@@ -129,6 +130,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
                     Intent intent = new Intent(v.getContext(), CommentActivity.class);
                     intent.putExtra("postString", post.getObjectId());
                     intent.putExtra("postID", Parcels.wrap(post));
+                    intent.putExtra("username", ParseUser.getCurrentUser().getUsername());
                     v.getContext().startActivity(intent);
                 }
             });

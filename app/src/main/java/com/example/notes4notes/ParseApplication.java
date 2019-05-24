@@ -2,6 +2,7 @@ package com.example.notes4notes;
 
 import android.app.Application;
 
+import com.example.notes4notes.Models.Comment;
 import com.example.notes4notes.Models.Post;
 import com.parse.Parse;
 import com.parse.ParseObject;
@@ -27,6 +28,7 @@ public class ParseApplication extends Application{
         */
 
         ParseObject.registerSubclass(Post.class);
+        ParseObject.registerSubclass(Comment.class);
             Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId(appId) // should correspond to APP_ID env variable
                 .clientKey(clientKey)  // set explicitly unless clientKey is explicitly configured on Parse server

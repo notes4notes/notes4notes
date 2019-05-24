@@ -88,6 +88,7 @@ public class CommentActivity extends AppCompatActivity  {
     }
     private void saveComment(String commentText){
         String postID = getIntent().getStringExtra("postString");
+        String username = ParseUser.getCurrentUser().getUsername();
         ParseObject post = new Post();  // Post(postID);
         post.setObjectId(postID);
         ParseObject comment = ParseObject.create("Comment");
