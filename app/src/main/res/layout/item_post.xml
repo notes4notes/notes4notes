@@ -5,7 +5,8 @@
     android:id="@+id/postContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    android:background="#147C7070">
 
 
     <ImageView

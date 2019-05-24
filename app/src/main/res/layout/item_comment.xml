@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp">
+    android:layout_margin="5dp"
+    android:background="#28E2AAAA">
 
     <TextView
         android:id="@+id/commentAuthor"
@@ -20,6 +21,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/commentAuthor"
-        android:text="hey man this is the best notes i've ever read woah"/>
+        android:text="hey man this is the best notes i've ever read woah" />
 
 </RelativeLayout>
