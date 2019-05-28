@@ -30,12 +30,12 @@ A way for Queens College students to exchange notes and resources easily and eff
 - [x] Login to account 
 - [x] Register for account 
 - [x] See posts timeline.  
-- [ ] Upload notes     (.pdf, images).
-- [ ] Parse Uploaded images into a .pdf. 
-- [ ] Users should be able to Download notes as .pdf (Account Required). 
-- [ ] The ability to rate uploads/posts. (Upload Rankings)
-- [ ] The ability to view/select notes that you acquire or uploaded.
-- [ ] Users can comment on notes
+- [x] Upload notes     (.pdf, images).
+- [x] Parse Uploaded images into a .pdf. 
+- [x] Users should be able to Download notes as .pdf (Account Required). 
+- [x] The ability to rate uploads/posts. (Upload Rankings)
+- [x] The ability to view/select notes that you acquire or uploaded.
+- [x] Users can comment on notes
 
 ### Optional Nice-to-have Stories 
 - [ ] Incorperate funtionality over multiple universities 
